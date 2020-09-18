@@ -1,8 +1,11 @@
 stages:
 - name: Build
   steps:
-  - runScriptConfig:
-      image: node:latest
-      shellScript: npm install
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: plash/ums:dev
+      pushRemote: true
+      registry: 127.0.0.1:34495
 timeout: 60
 notification: {}
