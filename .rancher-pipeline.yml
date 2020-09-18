@@ -1,11 +1,10 @@
 stages:
 - name: Build
   steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: plash/ums:dev
-      pushRemote: true
-      registry: 127.0.0.1:34495
+  - applyAppConfig:
+      catalogTemplate: ums-dev
+      version: dev
+      name: ums
+      targetNamespace: ums-dev
 timeout: 60
 notification: {}
